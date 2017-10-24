@@ -26,13 +26,6 @@ class CalendarPager extends BetterViewPager {
     }
 
     /**
-     * set typeface on child views
-     *
-     * @param typeface Typeface to be applied to all views
-     */
-    public void setTypeface(Typeface typeface) {}
-
-    /**
      * @return is this viewpager allowed to page
      */
     public boolean isPagingEnabled() {

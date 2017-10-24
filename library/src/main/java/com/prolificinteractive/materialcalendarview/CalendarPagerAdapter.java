@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
+import android.graphics.Typeface;
 
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView.ShowOtherDates;
 import com.prolificinteractive.materialcalendarview.format.DayFormatter;
@@ -48,6 +49,8 @@ abstract class CalendarPagerAdapter<V extends CalendarPagerView> extends PagerAd
         currentViews.iterator();
         setRangeDates(null, null);
     }
+
+    public void setTypeface(Typeface typeface){}
 
     public void setDecorators(List<DayViewDecorator> decorators) {
         this.decorators = decorators;

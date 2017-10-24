@@ -1,6 +1,7 @@
 package com.prolificinteractive.materialcalendarview;
 
 import android.annotation.SuppressLint;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 
 import java.util.Calendar;
@@ -18,6 +19,11 @@ public class WeekView extends CalendarPagerView {
                     CalendarDay firstViewDay,
                     int firstDayOfWeek) {
         super(view, firstViewDay, firstDayOfWeek);
+    }
+
+    @Override
+    protected void setTypeface(Typeface typeface){
+        super.setTypeface(typeface);
     }
 
     @Override

@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
+import android.graphics.Typeface;
 
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView.ShowOtherDates;
 import com.prolificinteractive.materialcalendarview.format.DayFormatter;
@@ -36,7 +37,7 @@ abstract class CalendarPagerView extends ViewGroup implements View.OnClickListen
     private CalendarDay minDate = null;
     private CalendarDay maxDate = null;
     private int firstDayOfWeek;
-
+    private Typeface typeface;
     private final Collection<DayView> dayViews = new ArrayList<>();
 
     public CalendarPagerView(@NonNull MaterialCalendarView view,
@@ -63,10 +64,18 @@ abstract class CalendarPagerView extends ViewGroup implements View.OnClickListen
         }
     }
 
+    protected void setTypeface(Typeface typeface){
+        this.typeface = typeface;
+    }
+
     protected void addDayView(Collection<DayView> dayViews, Calendar calendar) {
         CalendarDay day = CalendarDay.from(calendar);
         DayView dayView = new DayView(getContext(), day);
         dayView.setOnClickListener(this);
+        if (typeface != null){
+            dayView.setTypeface(this.typeface);
+        }
+
         dayViews.add(dayView);
         addView(dayView, new LayoutParams());
 

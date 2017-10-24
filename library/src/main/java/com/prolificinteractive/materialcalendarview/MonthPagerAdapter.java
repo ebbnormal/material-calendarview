@@ -2,6 +2,7 @@ package com.prolificinteractive.materialcalendarview;
 
 import android.support.annotation.NonNull;
 import android.support.v4.util.SparseArrayCompat;
+import android.graphics.Typeface;
 
 /**
  * Pager adapter backing the calendar view
@@ -15,7 +16,9 @@ class MonthPagerAdapter extends CalendarPagerAdapter<MonthView> {
 
     @Override
     protected MonthView createView(int position) {
-        return new MonthView(mcv, getItem(position), mcv.getFirstDayOfWeek());
+        MonthView monthView =  new MonthView(mcv, getItem(position), mcv.getFirstDayOfWeek());
+        monthView.setTypeface(this.typeface);
+        return monthView;
     }
 
     @Override
