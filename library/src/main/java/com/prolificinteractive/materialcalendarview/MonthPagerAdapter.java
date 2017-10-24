@@ -7,6 +7,7 @@ import android.support.v4.util.SparseArrayCompat;
  * Pager adapter backing the calendar view
  */
 class MonthPagerAdapter extends CalendarPagerAdapter<MonthView> {
+    private Typeface typeface;
 
     MonthPagerAdapter(MaterialCalendarView mcv) {
         super(mcv);
@@ -16,6 +17,12 @@ class MonthPagerAdapter extends CalendarPagerAdapter<MonthView> {
     protected MonthView createView(int position) {
         return new MonthView(mcv, getItem(position), mcv.getFirstDayOfWeek());
     }
+
+    @Override
+    public void setTypeface(Typeface typeface){
+        this.typeface = typeface;
+    }
+
 
     @Override
     protected int indexOf(MonthView view) {

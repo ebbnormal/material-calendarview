@@ -3,6 +3,7 @@ package com.prolificinteractive.materialcalendarview;
 import android.content.Context;
 import android.support.v4.view.BetterViewPager;
 import android.view.MotionEvent;
+import android.graphics.Typeface;
 
 /**
  * Custom ViewPager that allows swiping to be disabled.
@@ -23,6 +24,13 @@ class CalendarPager extends BetterViewPager {
     public void setPagingEnabled(boolean pagingEnabled) {
         this.pagingEnabled = pagingEnabled;
     }
+
+    /**
+     * set typeface on child views
+     *
+     * @param typeface Typeface to be applied to all views
+     */
+    public void setTypeface(Typeface typeface) {}
 
     /**
      * @return is this viewpager allowed to page
@@ -58,5 +66,7 @@ class CalendarPager extends BetterViewPager {
          */
         return pagingEnabled && super.canScrollHorizontally(direction);
     }
+
+
 
 }

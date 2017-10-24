@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -41,6 +42,7 @@ import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+
 
 /**
  * <p>
@@ -811,6 +813,15 @@ public class MaterialCalendarView extends ViewGroup {
         clearSelection();
         if (date != null) {
             setDateSelected(date, true);
+        }
+    }
+
+    /**
+     * @param typeface a Typeface to be applied to DayView, MonthView, and WeekTitleView
+     */
+    public void setTypeface(@Nullable Typeface typeface) {
+        if (typeface != null) {
+            this.adapter.setTypeface(typeface);
         }
     }
 
