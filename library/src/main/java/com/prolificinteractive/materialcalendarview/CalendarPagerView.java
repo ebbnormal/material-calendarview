@@ -2,6 +2,7 @@ package com.prolificinteractive.materialcalendarview;
 
 import android.support.annotation.NonNull;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
@@ -72,6 +73,8 @@ abstract class CalendarPagerView extends ViewGroup implements View.OnClickListen
         CalendarDay day = CalendarDay.from(calendar);
         DayView dayView = new DayView(getContext(), day);
         dayView.setOnClickListener(this);
+        Log.d("HELLO", "about to set typeface");
+        Log.d("HELLO", typeface.toString());
         if (typeface != null){
             dayView.setTypeface(this.typeface);
         }

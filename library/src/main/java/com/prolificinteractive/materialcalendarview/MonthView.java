@@ -3,6 +3,7 @@ package com.prolificinteractive.materialcalendarview;
 import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
 import android.graphics.Typeface;
+import android.util.Log;
 
 import java.util.Calendar;
 import java.util.Collection;
@@ -20,6 +21,9 @@ class MonthView extends CalendarPagerView {
 
     @Override
     protected void setTypeface(Typeface typeface){
+        Log.d("HELLO", "got typeface in MonthView");
+        Log.d("HELLO", "type face is");
+        Log.d("HELLO", typeface.toString());
         super.setTypeface(typeface);
     }
 
