@@ -67,7 +67,7 @@ import java.util.List;
  * </p>
  */
 public class MaterialCalendarView extends ViewGroup {
-
+    private Typeface typeface;
     public static final int INVALID_TILE_DIMENSION = -10;
 
     /**
@@ -392,7 +392,7 @@ public class MaterialCalendarView extends ViewGroup {
 
         if (isInEditMode()) {
             removeView(pager);
-            MonthView monthView = new MonthView(this, currentMonth, getFirstDayOfWeek());
+            MonthView monthView = new MonthView(this, currentMonth, getFirstDayOfWeek(), this.typeface);
             monthView.setSelectionColor(getSelectionColor());
             monthView.setDateTextAppearance(adapter.getDateTextAppearance());
             monthView.setWeekDayTextAppearance(adapter.getWeekDayTextAppearance());
@@ -821,6 +821,7 @@ public class MaterialCalendarView extends ViewGroup {
      */
     public void setTypeface(@Nullable Typeface typeface) {
         if (typeface != null) {
+            this.typeface = typeface;
             this.adapter.setTypeface(typeface);
         }
     }
