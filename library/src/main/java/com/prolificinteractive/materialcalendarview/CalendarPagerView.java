@@ -38,18 +38,16 @@ abstract class CalendarPagerView extends ViewGroup implements View.OnClickListen
     private CalendarDay minDate = null;
     private CalendarDay maxDate = null;
     private int firstDayOfWeek;
-    private Typeface typeface;
     private final Collection<DayView> dayViews = new ArrayList<>();
 
     public CalendarPagerView(@NonNull MaterialCalendarView view,
                              CalendarDay firstViewDay,
-                             int firstDayOfWeek,
-                             Typeface typeface) {
+                             int firstDayOfWeek
+                             ) {
         super(view.getContext());
         this.mcv = view;
         this.firstViewDay = firstViewDay;
         this.firstDayOfWeek = firstDayOfWeek;
-        this.typeface = typeface;
 
         setClipChildren(false);
         setClipToPadding(false);
@@ -67,18 +65,13 @@ abstract class CalendarPagerView extends ViewGroup implements View.OnClickListen
         }
     }
 
-    protected void setTypeface(Typeface typeface){
-        this.typeface = typeface;
-    }
 
     protected void addDayView(Collection<DayView> dayViews, Calendar calendar) {
         CalendarDay day = CalendarDay.from(calendar);
         DayView dayView = new DayView(getContext(), day);
         dayView.setOnClickListener(this);
-        Log.d("HELLO", "about to set typeface");
-        Log.d("HELLO", typeface.toString());
-        if (typeface != null){
-            dayView.setTypeface(this.typeface);
+        if(MaterialCalendarView.typeface !=null){
+            dayView.setTypeface(MaterialCalendarView.typeface);
         }
 
         dayViews.add(dayView);
@@ -120,6 +113,9 @@ abstract class CalendarPagerView extends ViewGroup implements View.OnClickListen
 
     public void setWeekDayTextAppearance(int taId) {
         for (WeekDayView weekDayView : weekDayViews) {
+            if(MaterialCalendarView.typeface !=null) {
+                weekDayView.setTypeface(MaterialCalendarView.typeface);
+            }
             weekDayView.setTextAppearance(getContext(), taId);
         }
     }

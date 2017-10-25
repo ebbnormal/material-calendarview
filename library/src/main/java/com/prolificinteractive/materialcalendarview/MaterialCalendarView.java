@@ -67,7 +67,7 @@ import java.util.List;
  * </p>
  */
 public class MaterialCalendarView extends ViewGroup {
-    private Typeface typeface;
+    public static Typeface typeface;
     public static final int INVALID_TILE_DIMENSION = -10;
 
     /**
@@ -822,7 +822,6 @@ public class MaterialCalendarView extends ViewGroup {
     public void setTypeface(@Nullable Typeface typeface) {
         if (typeface != null) {
             this.typeface = typeface;
-            this.adapter.setTypeface(typeface);
         }
     }
 

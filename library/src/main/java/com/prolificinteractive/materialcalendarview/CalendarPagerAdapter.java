@@ -41,7 +41,6 @@ abstract class CalendarPagerAdapter<V extends CalendarPagerView> extends PagerAd
     private List<DayViewDecorator> decorators = new ArrayList<>();
     private List<DecoratorResult> decoratorResults = null;
     private boolean selectionEnabled = true;
-    private Typeface typeface;
 
     CalendarPagerAdapter(MaterialCalendarView mcv) {
         this.mcv = mcv;
@@ -51,9 +50,6 @@ abstract class CalendarPagerAdapter<V extends CalendarPagerView> extends PagerAd
         setRangeDates(null, null);
     }
 
-    public void setTypeface(Typeface typeface){
-        this.typeface = typeface;
-    }
 
     public void setDecorators(List<DayViewDecorator> decorators) {
         this.decorators = decorators;
@@ -114,7 +110,7 @@ abstract class CalendarPagerAdapter<V extends CalendarPagerView> extends PagerAd
         return rangeIndex.indexOf(day);
     }
 
-    protected abstract V createView(int position, Typeface typeface);
+    protected abstract V createView(int position);
 
     protected abstract int indexOf(V view);
 
@@ -141,7 +137,7 @@ abstract class CalendarPagerAdapter<V extends CalendarPagerView> extends PagerAd
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        V pagerView = createView(position, this.typeface);
+        V pagerView = createView(position);
         pagerView.setContentDescription(mcv.getCalendarContentDescription());
         pagerView.setAlpha(0);
         pagerView.setSelectionEnabled(selectionEnabled);
