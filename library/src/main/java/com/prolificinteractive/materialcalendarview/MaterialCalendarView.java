@@ -373,8 +373,6 @@ public class MaterialCalendarView extends ViewGroup {
                     SHOW_DEFAULTS
             ));
 
-            setTextTypeface(this.typeface);
-
             setAllowClickDaysOutsideCurrentMonth(a.getBoolean(
                     R.styleable.MaterialCalendarView_mcv_allowClickDaysOutsideCurrentMonth,
                     true
@@ -414,8 +412,6 @@ public class MaterialCalendarView extends ViewGroup {
             title.setTypeface(typeface);
         }
     }
-
-
 
     private void setupChildren() {
         topbar = new LinearLayout(getContext());
@@ -838,6 +834,7 @@ public class MaterialCalendarView extends ViewGroup {
     public void setTypeface(@Nullable Typeface typeface) {
         if (typeface != null) {
             this.typeface = typeface;
+            setTextTypeface(this.typeface);
         }
     }
 
