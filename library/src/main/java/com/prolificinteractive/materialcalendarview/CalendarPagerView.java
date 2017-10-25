@@ -43,11 +43,13 @@ abstract class CalendarPagerView extends ViewGroup implements View.OnClickListen
 
     public CalendarPagerView(@NonNull MaterialCalendarView view,
                              CalendarDay firstViewDay,
-                             int firstDayOfWeek) {
+                             int firstDayOfWeek,
+                             Typeface typeface) {
         super(view.getContext());
         this.mcv = view;
         this.firstViewDay = firstViewDay;
         this.firstDayOfWeek = firstDayOfWeek;
+        this.typeface = typeface;
 
         setClipChildren(false);
         setClipToPadding(false);

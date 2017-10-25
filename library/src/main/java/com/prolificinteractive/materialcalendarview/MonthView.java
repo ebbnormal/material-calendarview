@@ -15,8 +15,8 @@ import java.util.Collection;
 @SuppressLint("ViewConstructor")
 class MonthView extends CalendarPagerView {
 
-    public MonthView(@NonNull MaterialCalendarView view, CalendarDay month, int firstDayOfWeek) {
-        super(view, month, firstDayOfWeek);
+    public MonthView(@NonNull MaterialCalendarView view, CalendarDay month, int firstDayOfWeek, Typeface typeface) {
+        super(view, month, firstDayOfWeek, typeface);
     }
 
     @Override

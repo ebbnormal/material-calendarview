@@ -15,9 +15,8 @@ class MonthPagerAdapter extends CalendarPagerAdapter<MonthView> {
     }
 
     @Override
-    protected MonthView createView(int position) {
-        MonthView monthView =  new MonthView(mcv, getItem(position), mcv.getFirstDayOfWeek());
-        monthView.setTypeface(this.typeface);
+    protected MonthView createView(int position, Typeface typeface) {
+        MonthView monthView =  new MonthView(mcv, getItem(position), mcv.getFirstDayOfWeek(), typeface);
         return monthView;
     }
 

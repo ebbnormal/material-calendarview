@@ -1,5 +1,6 @@
 package com.prolificinteractive.materialcalendarview;
 
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 
 import java.util.Calendar;
@@ -14,8 +15,8 @@ public class WeekPagerAdapter extends CalendarPagerAdapter<WeekView> {
     }
 
     @Override
-    protected WeekView createView(int position) {
-        return new WeekView(mcv, getItem(position), mcv.getFirstDayOfWeek());
+    protected WeekView createView(int position, Typeface typeface) {
+        return new WeekView(mcv, getItem(position), mcv.getFirstDayOfWeek(), typeface);
     }
 
     @Override
