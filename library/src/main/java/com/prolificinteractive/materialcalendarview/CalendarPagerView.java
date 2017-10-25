@@ -65,14 +65,18 @@ abstract class CalendarPagerView extends ViewGroup implements View.OnClickListen
         }
     }
 
-
+    public void setTypeface(Typeface typeface){
+        for(DayView dayView : dayViews){
+            dayView.setTypeface(typeface);
+        }
+        for (WeekDayView weekDayView : weekDayViews) {
+            weekDayView.setTypeface(typeface);
+        }
+    }
     protected void addDayView(Collection<DayView> dayViews, Calendar calendar) {
         CalendarDay day = CalendarDay.from(calendar);
         DayView dayView = new DayView(getContext(), day);
         dayView.setOnClickListener(this);
-        if(MaterialCalendarView.typeface !=null){
-            dayView.setTypeface(MaterialCalendarView.typeface);
-        }
 
         dayViews.add(dayView);
         addView(dayView, new LayoutParams());
@@ -113,9 +117,6 @@ abstract class CalendarPagerView extends ViewGroup implements View.OnClickListen
 
     public void setWeekDayTextAppearance(int taId) {
         for (WeekDayView weekDayView : weekDayViews) {
-            if(MaterialCalendarView.typeface !=null) {
-                weekDayView.setTypeface(MaterialCalendarView.typeface);
-            }
             weekDayView.setTextAppearance(getContext(), taId);
         }
     }

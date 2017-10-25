@@ -373,6 +373,8 @@ public class MaterialCalendarView extends ViewGroup {
                     SHOW_DEFAULTS
             ));
 
+            setTextTypeface(this.typeface);
+
             setAllowClickDaysOutsideCurrentMonth(a.getBoolean(
                     R.styleable.MaterialCalendarView_mcv_allowClickDaysOutsideCurrentMonth,
                     true
@@ -396,10 +398,24 @@ public class MaterialCalendarView extends ViewGroup {
             monthView.setSelectionColor(getSelectionColor());
             monthView.setDateTextAppearance(adapter.getDateTextAppearance());
             monthView.setWeekDayTextAppearance(adapter.getWeekDayTextAppearance());
+            monthView.setTypeface(adapter.getCalendarTextTypeFace());
             monthView.setShowOtherDates(getShowOtherDates());
             addView(monthView, new LayoutParams(calendarMode.visibleWeeksCount + DAY_NAMES_ROW));
         }
     }
+
+    private void setTextTypeface(Typeface typeface){
+        adapter.setTypeface(this.typeface);
+        setHeaderTextTypeface(typeface);
+    }
+
+    public void setHeaderTextTypeface(Typeface typeface){
+        if (typeface != null){
+            title.setTypeface(typeface);
+        }
+    }
+
+
 
     private void setupChildren() {
         topbar = new LinearLayout(getContext());
@@ -1112,6 +1128,7 @@ public class MaterialCalendarView extends ViewGroup {
         setSelectionColor(ss.color);
         setDateTextAppearance(ss.dateTextAppearance);
         setWeekDayTextAppearance(ss.weekDayTextAppearance);
+        setTextTypeface(this.typeface);
         setShowOtherDates(ss.showOtherDates);
         setAllowClickDaysOutsideCurrentMonth(ss.allowClickDaysOutsideCurrentMonth);
         clearSelection();

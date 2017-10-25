@@ -22,6 +22,7 @@ import java.util.List;
 abstract class CalendarPagerAdapter<V extends CalendarPagerView> extends PagerAdapter {
 
     private final ArrayDeque<V> currentViews;
+    private Typeface typeface;
 
     protected final MaterialCalendarView mcv;
     private final CalendarDay today;
@@ -117,6 +118,17 @@ abstract class CalendarPagerAdapter<V extends CalendarPagerView> extends PagerAd
     protected abstract boolean isInstanceOfView(Object object);
 
     protected abstract DateRangeIndex createRangeIndex(CalendarDay min, CalendarDay max);
+
+    public void setTypeface(Typeface typeface){
+        if (typeface == null){
+            return;
+        }
+        this.typeface = typeface;
+        for (V pagerView : currentViews){
+            pagerView.setTypeface(typeface);
+        }
+    }
+
 
     @Override
     public int getItemPosition(Object object) {
@@ -322,4 +334,9 @@ abstract class CalendarPagerAdapter<V extends CalendarPagerView> extends PagerAd
     protected int getWeekDayTextAppearance() {
         return weekDayTextAppearance == null ? 0 : weekDayTextAppearance;
     }
+
+    protected Typeface getCalendarTextTypeFace(){
+        return typeface == null ? null : typeface;
+    }
+
 }
